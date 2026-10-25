@@ -1,0 +1,682 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://libra.invalid/schema/libra-audit-report-0.1.schema.json",
+ "title": "Libra audit report (LARS v0.1 machine-readable disclosure record)",
+ "description": "Emitted by libra-check 0.1. Field names follow the Libra Audit Reporting Standard v0.1 \u00a75 (governance/artifacts/c_libra_audit_reporting_standard_v0.1.md), with categories/ratios nested in units (one per category dimension). Placeholder $id; no public host yet. v0.1.1 (2026-10-13, after an internal red-team review): adds estimand, data_scope, selection_adjustment (pairwise_min default: every category incl. the comparator gets a state that accounts for the data-selected comparator), exclusion_base, precommitment, cut_sensitivity, ratios[].conditional/is_comparator/interval_basis.",
+ "type": "object",
+ "required": [
+  "schema_version",
+  "lars_version",
+  "report_id",
+  "generated_at",
+  "system",
+  "decision_point",
+  "outcome_definition",
+  "selection_rule",
+  "category_scheme",
+  "data_window",
+  "data_source",
+  "unknown_category_handling",
+  "comparator_rule",
+  "thresholds",
+  "alpha",
+  "interval_method",
+  "interval_citation",
+  "zero_handling",
+  "min_n",
+  "burden_rule",
+  "comparisons_count",
+  "units",
+  "parameters",
+  "summary",
+  "warnings",
+  "software",
+  "estimand",
+  "selection_adjustment",
+  "data_scope"
+ ],
+ "properties": {
+  "schema_version": {
+   "const": "libra-audit-report/0.1"
+  },
+  "lars_version": {
+   "const": "0.1"
+  },
+  "report_id": {
+   "type": "string"
+  },
+  "generated_at": {
+   "type": "string"
+  },
+  "system": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "deployer": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "auditor": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "decision_point": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "outcome_definition": {
+   "type": "string"
+  },
+  "selection_rule": {
+   "enum": [
+    "rate",
+    "scoring_rate"
+   ]
+  },
+  "score_cut": {
+   "type": [
+    "string",
+    "number",
+    "null"
+   ]
+  },
+  "category_scheme": {
+   "type": "string"
+  },
+  "data_window": {
+   "type": [
+    "string",
+    "object"
+   ]
+  },
+  "data_source": {
+   "enum": [
+    "historical",
+    "test",
+    "synthetic",
+    "unknown"
+   ]
+  },
+  "unknown_category_handling": {
+   "const": "exclude_and_report"
+  },
+  "comparator_rule": {
+   "type": "string",
+   "pattern": "^(max_rate_eligible|max_rate_all|fixed:.+)$"
+  },
+  "thresholds": {
+   "type": "array",
+   "items": {
+    "type": "number",
+    "exclusiveMinimum": 0
+   },
+   "minItems": 1
+  },
+  "alpha": {
+   "type": "number",
+   "exclusiveMinimum": 0,
+   "exclusiveMaximum": 1
+  },
+  "alpha_per_bound": {
+   "type": "number"
+  },
+  "interval_method": {
+   "enum": [
+    "mover_wilson",
+    "koopman",
+    "miettinen_nurminen",
+    "katz_log"
+   ]
+  },
+  "interval_citation": {
+   "type": "string"
+  },
+  "zero_handling": {
+   "type": "string"
+  },
+  "min_n": {
+   "type": [
+    "integer",
+    "null"
+   ]
+  },
+  "burden_rule": {
+   "enum": [
+    "report_only",
+    "deployer",
+    "challenger"
+   ]
+  },
+  "multiplicity": {
+   "enum": [
+    "none",
+    "bonferroni"
+   ]
+  },
+  "comparisons_count": {
+   "type": "integer",
+   "minimum": 0
+  },
+  "units": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "dimension",
+     "comparator_category",
+     "comparator_data_selected",
+     "total_known_n",
+     "unknown_n",
+     "categories",
+     "ratios"
+    ],
+    "properties": {
+     "dimension": {
+      "type": "string"
+     },
+     "total_known_n": {
+      "type": "integer"
+     },
+     "unknown_n": {
+      "type": "integer"
+     },
+     "comparator_category": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "comparator_rate": {
+      "type": [
+       "number",
+       "null"
+      ]
+     },
+     "comparator_data_selected": {
+      "type": "boolean"
+     },
+     "comparator_projection": {
+      "type": [
+       "object",
+       "null"
+      ]
+     },
+     "categories": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "required": [
+        "label",
+        "n",
+        "k",
+        "rate",
+        "excluded",
+        "exclusion_reason"
+       ],
+       "properties": {
+        "label": {
+         "type": "string"
+        },
+        "n": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "k": {
+         "type": [
+          "integer",
+          "null"
+         ],
+         "minimum": 0
+        },
+        "rate": {
+         "type": [
+          "number",
+          "null"
+         ]
+        },
+        "excluded": {
+         "type": "boolean"
+        },
+        "exclusion_reason": {
+         "type": [
+          "string",
+          "null"
+         ]
+        },
+        "unknown": {
+         "type": "boolean"
+        },
+        "share_of_known": {
+         "type": [
+          "number",
+          "null"
+         ]
+        },
+        "k_reconstructed": {
+         "type": "boolean"
+        },
+        "k_bounds": {
+         "type": "array",
+         "items": {
+          "type": "integer"
+         },
+         "minItems": 2,
+         "maxItems": 2
+        },
+        "reconstruction": {
+         "type": [
+          "string",
+          "null"
+         ]
+        }
+       }
+      }
+     },
+     "ratios": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "required": [
+        "category",
+        "point",
+        "lower",
+        "upper",
+        "state_by_threshold",
+        "decision_by_threshold",
+        "point_label_by_threshold"
+       ],
+       "properties": {
+        "category": {
+         "type": "string"
+        },
+        "n": {
+         "type": "integer"
+        },
+        "k": {
+         "type": [
+          "integer",
+          "null"
+         ]
+        },
+        "point": {
+         "type": [
+          "number",
+          "null"
+         ]
+        },
+        "lower": {
+         "type": [
+          "number",
+          "null"
+         ]
+        },
+        "upper": {
+         "type": [
+          "number",
+          "null"
+         ]
+        },
+        "upper_infinite": {
+         "type": "boolean"
+        },
+        "state_by_threshold": {
+         "type": "object",
+         "propertyNames": {
+          "pattern": "^[0-9.]+$"
+         },
+         "additionalProperties": {
+          "enum": [
+           "determinate_below",
+           "indeterminate",
+           "determinate_at_or_above",
+           "not_estimable"
+          ]
+         }
+        },
+        "adjusted_states": {
+         "type": "object",
+         "properties": {
+          "method": {
+           "type": "string"
+          },
+          "state_by_threshold": {
+           "type": "object",
+           "propertyNames": {
+            "pattern": "^[0-9.]+$"
+           },
+           "additionalProperties": {
+            "enum": [
+             "determinate_below",
+             "indeterminate",
+             "determinate_at_or_above",
+             "not_estimable"
+            ]
+           }
+          }
+         }
+        },
+        "decision_by_threshold": {
+         "type": "object",
+         "propertyNames": {
+          "pattern": "^[0-9.]+$"
+         },
+         "additionalProperties": {
+          "type": "string"
+         }
+        },
+        "point_label_by_threshold": {
+         "type": "object",
+         "propertyNames": {
+          "pattern": "^[0-9.]+$"
+         },
+         "additionalProperties": {
+          "enum": [
+           "point_at_or_above",
+           "point_below",
+           null
+          ]
+         }
+        },
+        "not_estimable_reason": {
+         "type": [
+          "string",
+          "null"
+         ]
+        },
+        "projection": {
+         "type": "object",
+         "required": [
+          "lower",
+          "upper",
+          "state_by_threshold"
+         ],
+         "properties": {
+          "lower": {
+           "type": [
+            "number",
+            "null"
+           ]
+          },
+          "upper": {
+           "type": [
+            "number",
+            "null"
+           ]
+          },
+          "state_by_threshold": {
+           "type": "object",
+           "propertyNames": {
+            "pattern": "^[0-9.]+$"
+           },
+           "additionalProperties": {
+            "enum": [
+             "determinate_below",
+             "indeterminate",
+             "determinate_at_or_above",
+             "not_estimable"
+            ]
+           }
+          },
+          "method": {
+           "type": "string"
+          }
+         }
+        },
+        "rounding_envelope": {
+         "type": "object",
+         "required": [
+          "lower",
+          "upper",
+          "state_by_threshold"
+         ],
+         "properties": {
+          "lower": {
+           "type": [
+            "number",
+            "null"
+           ]
+          },
+          "upper": {
+           "type": [
+            "number",
+            "null"
+           ]
+          },
+          "state_by_threshold": {
+           "type": "object",
+           "propertyNames": {
+            "pattern": "^[0-9.]+$"
+           },
+           "additionalProperties": {
+            "enum": [
+             "determinate_below",
+             "indeterminate",
+             "determinate_at_or_above",
+             "not_estimable"
+            ]
+           }
+          },
+          "method": {
+           "type": "string"
+          }
+         }
+        },
+        "additional_n_hint": {
+         "type": [
+          "object",
+          "null"
+         ]
+        },
+        "precision": {
+         "type": [
+          "object",
+          "null"
+         ]
+        },
+        "is_comparator": {
+         "type": "boolean"
+        },
+        "interval_basis": {
+         "type": [
+          "string",
+          "null"
+         ]
+        },
+        "conditional": {
+         "type": "object",
+         "required": [
+          "lower",
+          "upper",
+          "state_by_threshold"
+         ],
+         "properties": {
+          "lower": {
+           "type": [
+            "number",
+            "null"
+           ]
+          },
+          "upper": {
+           "type": [
+            "number",
+            "null"
+           ]
+          },
+          "state_by_threshold": {
+           "type": "object",
+           "propertyNames": {
+            "pattern": "^[0-9.]+$"
+           },
+           "additionalProperties": {
+            "enum": [
+             "determinate_below",
+             "indeterminate",
+             "determinate_at_or_above",
+             "not_estimable"
+            ]
+           }
+          },
+          "method": {
+           "type": "string"
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   },
+   "minItems": 1
+  },
+  "parameters": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "name",
+     "value",
+     "set_by",
+     "role",
+     "process",
+     "date",
+     "source"
+    ],
+    "properties": {
+     "name": {
+      "type": "string"
+     },
+     "value": {},
+     "set_by": {
+      "type": "string",
+      "minLength": 1
+     },
+     "role": {
+      "enum": [
+       "community_body",
+       "regulator",
+       "auditor",
+       "vendor",
+       "employer_deployer",
+       "researcher",
+       "standard_default",
+       "tool_default",
+       "unattributed"
+      ]
+     },
+     "process": {
+      "type": "string"
+     },
+     "date": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "source": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "changed_from": {},
+     "is_default": {
+      "type": "boolean"
+     }
+    }
+   }
+  },
+  "summary": {
+   "type": "object",
+   "required": [
+    "by_threshold"
+   ]
+  },
+  "warnings": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "code",
+     "message"
+    ]
+   }
+  },
+  "software": {
+   "type": "object",
+   "required": [
+    "name",
+    "version"
+   ],
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "version": {
+     "type": "string"
+    },
+    "commit": {
+     "type": [
+      "string",
+      "null"
+     ]
+    }
+   }
+  },
+  "input_sha256": {
+   "type": "string"
+  },
+  "parameters_sha256": {
+   "type": "string"
+  },
+  "data_scope": {
+   "type": "string",
+   "pattern": "^(own|pooled(:.+)?|unknown)$"
+  },
+  "estimand": {
+   "enum": [
+    "process",
+    "finite_population"
+   ]
+  },
+  "selection_adjustment": {
+   "enum": [
+    "pairwise_min",
+    "none"
+   ]
+  },
+  "exclusion_base": {
+   "enum": [
+    "known",
+    "all_assessed"
+   ]
+  },
+  "precommitment": {
+   "type": [
+    "object",
+    "null"
+   ],
+   "properties": {
+    "hash": {
+     "type": "string"
+    },
+    "matches": {
+     "type": "boolean"
+    },
+    "note": {
+     "type": "string"
+    }
+   }
+  },
+  "cut_sensitivity": {
+   "type": "object"
+  }
+ }
+}

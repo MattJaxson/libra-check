@@ -1,0 +1,13 @@
+libra-check
+Copyright 2026 Matthew Jackson
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+It implements interval methods published by others; see the citations printed in
+every report and in README.md (Morris & Lobsenz 2000; Donner & Zou 2012;
+Newcombe 2016; Wilson 1927; Koopman 1984; Miettinen & Nurminen 1985; Katz et al. 1978).
+
+The worked examples in examples/ use public data: a Michigan single-lender HMDA
+filing (CFPB/FFIEC public HMDA data) and the ProPublica COMPAS Broward County data
+(https://github.com/propublica/compas-analysis). Those datasets remain subject to
+their publishers' terms. Only aggregate counts are included here.

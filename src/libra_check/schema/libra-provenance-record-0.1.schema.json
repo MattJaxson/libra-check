@@ -1,0 +1,68 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://libra.invalid/schema/libra-provenance-record-0.1.schema.json",
+ "title": "Libra parameter provenance record v0.1 (input to libra-check --provenance)",
+ "type": "object",
+ "required": [
+  "parameters"
+ ],
+ "properties": {
+  "parameters": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "name",
+     "value",
+     "set_by",
+     "role",
+     "process",
+     "date",
+     "source"
+    ],
+    "properties": {
+     "name": {
+      "type": "string"
+     },
+     "value": {},
+     "set_by": {
+      "type": "string",
+      "minLength": 1
+     },
+     "role": {
+      "enum": [
+       "community_body",
+       "regulator",
+       "auditor",
+       "vendor",
+       "employer_deployer",
+       "researcher",
+       "standard_default",
+       "tool_default",
+       "unattributed"
+      ]
+     },
+     "process": {
+      "type": "string"
+     },
+     "date": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "source": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "changed_from": {},
+     "is_default": {
+      "type": "boolean"
+     }
+    }
+   }
+  }
+ }
+}

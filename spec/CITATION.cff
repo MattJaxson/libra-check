@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use or adopt LARS, please cite it as below."
+title: "Libra Audit Reporting Standard (LARS) v0.1: a disclosure format for impact ratios with uncertainty and parameter provenance (draft for comment)"
+type: software
+authors:
+  - family-names: Jackson
+    given-names: Matthew
+    affiliation: "Independent Researcher, Detroit, MI, USA"
+version: "0.1"
+date-released: "2026-10-25"
+license: CC-BY-4.0
+repository-code: "https://github.com/MattJaxson/libra-check/tree/main/spec"
+keywords:
+  - bias audit
+  - reporting standard
+  - impact ratio
+  - four-fifths rule
+  - provenance

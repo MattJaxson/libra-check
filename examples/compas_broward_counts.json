@@ -1,0 +1,41 @@
+{
+ "meta": {
+  "system": "ProPublica COMPAS Broward County data",
+  "decision_point": "COMPAS two-year recidivism label (favourable = no recidivism)",
+  "data_source": "historical",
+  "source_note": "counts reconstructed exactly (k = rate x n, 6-dp rates) from preprint v1.1 results JSON, doi:10.5281/zenodo.23328063; source sha256 c451db85908b2f7fef1d83203bedf6b71ecda0d5af468d82ae62178f91d0cc7d",
+  "reference_group": "Caucasian"
+ },
+ "units": [
+  {
+   "dimension": "race",
+   "categories": [
+    {
+     "label": "African-American",
+     "n": 3696,
+     "k": 1795
+    },
+    {
+     "label": "Asian",
+     "n": 32,
+     "k": 23
+    },
+    {
+     "label": "Caucasian",
+     "n": 2454,
+     "k": 1488
+    },
+    {
+     "label": "Hispanic",
+     "n": 637,
+     "k": 405
+    },
+    {
+     "label": "Native American",
+     "n": 18,
+     "k": 8
+    }
+   ]
+  }
+ ]
+}

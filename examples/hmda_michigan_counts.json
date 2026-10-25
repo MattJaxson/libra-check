@@ -1,0 +1,41 @@
+{
+ "meta": {
+  "system": "HMDA Michigan single-lender filing",
+  "decision_point": "HMDA action_taken (origination)",
+  "data_source": "historical",
+  "source_note": "counts reconstructed exactly (k = rate x n, 6-dp rates) from preprint v1.1 results JSON, doi:10.5281/zenodo.23328063; source sha256 17dad996ce10286d269e278cd6538067eab40cbf5616d26b6f2c6bcb169d3029",
+  "reference_group": "White"
+ },
+ "units": [
+  {
+   "dimension": "race",
+   "categories": [
+    {
+     "label": "American Indian or Alaska Native",
+     "n": 29,
+     "k": 4
+    },
+    {
+     "label": "Asian",
+     "n": 232,
+     "k": 75
+    },
+    {
+     "label": "Black or African American",
+     "n": 632,
+     "k": 217
+    },
+    {
+     "label": "Native Hawaiian or Other Pacific Islander",
+     "n": 5,
+     "k": 1
+    },
+    {
+     "label": "White",
+     "n": 2933,
+     "k": 1232
+    }
+   ]
+  }
+ ]
+}

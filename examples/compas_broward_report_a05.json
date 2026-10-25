@@ -1,0 +1,508 @@
+{
+ "schema_version": "libra-audit-report/0.1",
+ "lars_version": "0.1",
+ "report_id": "lc-de15cbd077bd0131",
+ "generated_at": "2026-10-13T05:23:03+00:00",
+ "system": "ProPublica COMPAS Broward County data",
+ "deployer": null,
+ "auditor": null,
+ "decision_point": "COMPAS two-year recidivism label (favourable = no recidivism)",
+ "outcome_definition": "no new charge within two years (two_year_recid = 0)",
+ "selection_rule": "rate",
+ "score_cut": null,
+ "category_scheme": "as supplied in input",
+ "data_window": "as in preprint v1.1 source file",
+ "data_source": "historical",
+ "data_scope": "own",
+ "estimand": "process",
+ "unknown_category_handling": "exclude_and_report",
+ "comparator_rule": "fixed:Caucasian",
+ "selection_adjustment": "none",
+ "exclusion_base": "known",
+ "thresholds": [
+  0.8,
+  0.85
+ ],
+ "alpha": 0.05,
+ "alpha_per_bound": 0.025,
+ "interval_method": "mover_wilson",
+ "interval_citation": "MOVER-R with Wilson limits: Donner & Zou (2012) Stat Methods Med Res 21(4):347-359, doi:10.1177/0962280210383082; Newcombe (2016) Stat Methods Med Res 25(5):1774-1778, doi:10.1177/0962280213502144; Wilson (1927) JASA 22:209-212, doi:10.1080/01621459.1927.10502953",
+ "zero_handling": "closed form; Wilson limits are defined at k=0 and k=n; focal k=0 gives lower=0; comparator k=0 makes the ratio not estimable",
+ "min_n": 30,
+ "burden_rule": "report_only",
+ "multiplicity": "none",
+ "comparisons_count": 3,
+ "units": [
+  {
+   "dimension": "race",
+   "total_known_n": 6837,
+   "unknown_n": 0,
+   "comparator_category": "Caucasian",
+   "comparator_rate": 0.606357,
+   "comparator_data_selected": false,
+   "comparator_projection": null,
+   "categories": [
+    {
+     "label": "African-American",
+     "n": 3696,
+     "k": 1795,
+     "rate": 0.48566,
+     "excluded": false,
+     "exclusion_reason": null,
+     "unknown": false,
+     "share_of_known": 0.540588,
+     "k_reconstructed": false
+    },
+    {
+     "label": "Asian",
+     "n": 32,
+     "k": 23,
+     "rate": 0.71875,
+     "excluded": false,
+     "exclusion_reason": null,
+     "unknown": false,
+     "share_of_known": 0.00468,
+     "k_reconstructed": false
+    },
+    {
+     "label": "Caucasian",
+     "n": 2454,
+     "k": 1488,
+     "rate": 0.606357,
+     "excluded": false,
+     "exclusion_reason": null,
+     "unknown": false,
+     "share_of_known": 0.358929,
+     "k_reconstructed": false
+    },
+    {
+     "label": "Hispanic",
+     "n": 637,
+     "k": 405,
+     "rate": 0.635793,
+     "excluded": false,
+     "exclusion_reason": null,
+     "unknown": false,
+     "share_of_known": 0.09317,
+     "k_reconstructed": false
+    },
+    {
+     "label": "Native American",
+     "n": 18,
+     "k": 8,
+     "rate": 0.444444,
+     "excluded": false,
+     "exclusion_reason": null,
+     "unknown": false,
+     "share_of_known": 0.002633,
+     "k_reconstructed": false
+    }
+   ],
+   "ratios": [
+    {
+     "category": "African-American",
+     "n": 3696,
+     "k": 1795,
+     "is_comparator": false,
+     "point": 0.800948,
+     "lower": 0.765061,
+     "upper": 0.838803,
+     "upper_infinite": false,
+     "interval_basis": "pair vs fixed comparator",
+     "state_by_threshold": {
+      "0.8": "indeterminate",
+      "0.85": "determinate_below"
+     },
+     "adjusted_states": {
+      "method": "Bonferroni over 3 comparisons",
+      "state_by_threshold": {
+       "0.8": "indeterminate",
+       "0.85": "determinate_below"
+      }
+     },
+     "decision_by_threshold": {
+      "0.8": "indeterminate",
+      "0.85": "determinate_below"
+     },
+     "point_label_by_threshold": {
+      "0.8": "point_at_or_above",
+      "0.85": "point_below"
+     },
+     "not_estimable_reason": null,
+     "additional_n_hint": {
+      "scale_factor": 1510.269,
+      "focal_n_needed": 5581953,
+      "comparator_n_needed": 3706200,
+      "note": "if both point rates held; a precision statement, not a prediction"
+     },
+     "precision": {
+      "power": 0.8,
+      "assumed_comparator_rate": 0.606357,
+      "method": "monte_carlo_4000_actual_method",
+      "grid_step": 0.01,
+      "flags_below_if_true_ir_at_most": 0.74,
+      "certifies_at_or_above_if_true_ir_at_least": 0.86,
+      "note": "true IRs between these values are likely (prob > 1 - power) to be classified indeterminate",
+      "basis": "pair vs observed comparator rate (approximation for pairwise_min states)"
+     }
+    },
+    {
+     "category": "Asian",
+     "n": 32,
+     "k": 23,
+     "is_comparator": false,
+     "point": 1.185358,
+     "lower": 0.899465,
+     "upper": 1.397313,
+     "upper_infinite": false,
+     "interval_basis": "pair vs fixed comparator",
+     "state_by_threshold": {
+      "0.8": "determinate_at_or_above",
+      "0.85": "determinate_at_or_above"
+     },
+     "adjusted_states": {
+      "method": "Bonferroni over 3 comparisons",
+      "state_by_threshold": {
+       "0.8": "determinate_at_or_above",
+       "0.85": "indeterminate"
+      }
+     },
+     "decision_by_threshold": {
+      "0.8": "determinate_at_or_above",
+      "0.85": "determinate_at_or_above"
+     },
+     "point_label_by_threshold": {
+      "0.8": "point_at_or_above",
+      "0.85": "point_at_or_above"
+     },
+     "not_estimable_reason": null,
+     "additional_n_hint": null,
+     "precision": {
+      "power": 0.8,
+      "assumed_comparator_rate": 0.606357,
+      "method": "exact_enumeration",
+      "grid_step": 0.005,
+      "flags_below_if_true_ir_at_most": 0.405,
+      "certifies_at_or_above_if_true_ir_at_least": 1.2,
+      "note": "true IRs between these values are likely (prob > 1 - power) to be classified indeterminate",
+      "basis": "pair vs observed comparator rate (approximation for pairwise_min states)"
+     }
+    },
+    {
+     "category": "Hispanic",
+     "n": 637,
+     "k": 405,
+     "is_comparator": false,
+     "point": 1.048545,
+     "lower": 0.978553,
+     "upper": 1.118585,
+     "upper_infinite": false,
+     "interval_basis": "pair vs fixed comparator",
+     "state_by_threshold": {
+      "0.8": "determinate_at_or_above",
+      "0.85": "determinate_at_or_above"
+     },
+     "adjusted_states": {
+      "method": "Bonferroni over 3 comparisons",
+      "state_by_threshold": {
+       "0.8": "determinate_at_or_above",
+       "0.85": "determinate_at_or_above"
+      }
+     },
+     "decision_by_threshold": {
+      "0.8": "determinate_at_or_above",
+      "0.85": "determinate_at_or_above"
+     },
+     "point_label_by_threshold": {
+      "0.8": "point_at_or_above",
+      "0.85": "point_at_or_above"
+     },
+     "not_estimable_reason": null,
+     "additional_n_hint": null,
+     "precision": {
+      "power": 0.8,
+      "assumed_comparator_rate": 0.606357,
+      "method": "exact_enumeration",
+      "grid_step": 0.005,
+      "flags_below_if_true_ir_at_most": 0.7,
+      "certifies_at_or_above_if_true_ir_at_least": 0.9,
+      "note": "true IRs between these values are likely (prob > 1 - power) to be classified indeterminate",
+      "basis": "pair vs observed comparator rate (approximation for pairwise_min states)"
+     }
+    },
+    {
+     "category": "Native American",
+     "n": 18,
+     "k": 8,
+     "is_comparator": false,
+     "point": 0.732975,
+     "lower": 0.404785,
+     "upper": 1.094858,
+     "upper_infinite": false,
+     "interval_basis": "pair vs fixed comparator",
+     "state_by_threshold": {
+      "0.8": "not_estimable",
+      "0.85": "not_estimable"
+     },
+     "adjusted_states": {
+      "method": "Bonferroni over 3 comparisons",
+      "state_by_threshold": {
+       "0.8": "not_estimable",
+       "0.85": "not_estimable"
+      }
+     },
+     "decision_by_threshold": {
+      "0.8": "not_estimable",
+      "0.85": "not_estimable"
+     },
+     "point_label_by_threshold": {
+      "0.8": "point_below",
+      "0.85": "point_below"
+     },
+     "not_estimable_reason": "n below declared min_n=30"
+    }
+   ]
+  }
+ ],
+ "parameters": [
+  {
+   "name": "thresholds",
+   "value": [
+    0.8,
+    0.85
+   ],
+   "set_by": "Matt Jackson (worked example)",
+   "role": "researcher",
+   "process": "illustration; 0.80 echoes the four-fifths rule of thumb, 0.85 shows sensitivity",
+   "date": "2026-10-13",
+   "source": "unassigned by rule (illustration only)",
+   "is_default": false
+  },
+  {
+   "name": "alpha",
+   "value": 0.05,
+   "set_by": "Matt Jackson (worked example)",
+   "role": "researcher",
+   "process": "two-sided 95% to match the preprint's 95% intervals and LARS v0.1 R6 SHOULD-default",
+   "date": "2026-10-13",
+   "source": "unassigned by rule; LARS v0.1 R6 default",
+   "is_default": false
+  },
+  {
+   "name": "interval_method",
+   "value": "mover_wilson",
+   "set_by": "libra-check",
+   "role": "tool_default",
+   "process": "libra-check default; not chosen by any accountable party",
+   "date": null,
+   "source": "unassigned by rule",
+   "is_default": true
+  },
+  {
+   "name": "comparator_rule",
+   "value": "fixed:Caucasian",
+   "set_by": "Matt Jackson (worked example)",
+   "role": "researcher",
+   "process": "same reference group as preprint v1.1",
+   "date": "2026-10-13",
+   "source": "Jackson (2026) preprint v1.1, doi:10.5281/zenodo.23328063",
+   "is_default": false
+  },
+  {
+   "name": "small_category_exclusion",
+   "value": null,
+   "set_by": "libra-check",
+   "role": "tool_default",
+   "process": "libra-check default; not chosen by any accountable party",
+   "date": null,
+   "source": "unassigned by rule",
+   "is_default": true
+  },
+  {
+   "name": "unknown_category_handling",
+   "value": "exclude_and_report",
+   "set_by": "libra-check",
+   "role": "tool_default",
+   "process": "libra-check default; not chosen by any accountable party",
+   "date": null,
+   "source": "unassigned by rule",
+   "is_default": true
+  },
+  {
+   "name": "min_n",
+   "value": 30,
+   "set_by": "Matt Jackson (worked example)",
+   "role": "researcher",
+   "process": "same reportable-n rule as preprint v1.1",
+   "date": "2026-10-13",
+   "source": "Jackson (2026) preprint v1.1 (minimum_group_n_for_aggregate_counts = 30)",
+   "is_default": false
+  },
+  {
+   "name": "burden_rule",
+   "value": "report_only",
+   "set_by": "libra-check",
+   "role": "tool_default",
+   "process": "libra-check default; not chosen by any accountable party",
+   "date": null,
+   "source": "unassigned by rule",
+   "is_default": true
+  },
+  {
+   "name": "multiplicity",
+   "value": "none",
+   "set_by": "libra-check",
+   "role": "tool_default",
+   "process": "libra-check default; not chosen by any accountable party",
+   "date": null,
+   "source": "unassigned by rule",
+   "is_default": true
+  },
+  {
+   "name": "outcome_definition",
+   "value": "no new charge within two years (two_year_recid = 0)",
+   "set_by": "Matt Jackson (worked example)",
+   "role": "researcher",
+   "process": "same outcome as preprint v1.1",
+   "date": "2026-10-13",
+   "source": "Jackson (2026) preprint v1.1",
+   "is_default": false
+  },
+  {
+   "name": "category_scheme",
+   "value": "as supplied in input",
+   "set_by": "libra-check",
+   "role": "tool_default",
+   "process": "libra-check default; not chosen by any accountable party",
+   "date": null,
+   "source": "unassigned by rule",
+   "is_default": true
+  },
+  {
+   "name": "data_window",
+   "value": "as in preprint v1.1 source file",
+   "set_by": "Matt Jackson (worked example)",
+   "role": "researcher",
+   "process": "public dataset",
+   "date": "2026-10-13",
+   "source": "preprint v1.1 data acquisition notes",
+   "is_default": false
+  },
+  {
+   "name": "selection_rule",
+   "value": "rate",
+   "set_by": "libra-check",
+   "role": "tool_default",
+   "process": "libra-check default; not chosen by any accountable party",
+   "date": null,
+   "source": "unassigned by rule",
+   "is_default": true
+  },
+  {
+   "name": "score_cut",
+   "value": null,
+   "set_by": "libra-check",
+   "role": "tool_default",
+   "process": "libra-check default; not chosen by any accountable party",
+   "date": null,
+   "source": "unassigned by rule",
+   "is_default": true
+  },
+  {
+   "name": "selection_adjustment",
+   "value": "pairwise_min",
+   "set_by": "libra-check",
+   "role": "tool_default",
+   "process": "libra-check default; not chosen by any accountable party",
+   "date": null,
+   "source": "unassigned by rule",
+   "is_default": true
+  },
+  {
+   "name": "exclusion_base",
+   "value": "known",
+   "set_by": "libra-check",
+   "role": "tool_default",
+   "process": "libra-check default; not chosen by any accountable party",
+   "date": null,
+   "source": "unassigned by rule",
+   "is_default": true
+  },
+  {
+   "name": "estimand",
+   "value": "process",
+   "set_by": "libra-check",
+   "role": "tool_default",
+   "process": "libra-check default; not chosen by any accountable party",
+   "date": null,
+   "source": "unassigned by rule",
+   "is_default": true
+  }
+ ],
+ "summary": {
+  "units": 1,
+  "comparisons_count": 3,
+  "by_threshold": {
+   "0.8": {
+    "states": {
+     "determinate_below": 0,
+     "indeterminate": 1,
+     "determinate_at_or_above": 2,
+     "not_estimable": 1
+    },
+    "adjusted_states": {
+     "determinate_below": 0,
+     "indeterminate": 1,
+     "determinate_at_or_above": 2,
+     "not_estimable": 1
+    },
+    "any_determinate_below": false,
+    "all_determinate_at_or_above": false,
+    "familywise_any_determinate_below": false,
+    "familywise_all_determinate_at_or_above": false,
+    "point_below_count": 1
+   },
+   "0.85": {
+    "states": {
+     "determinate_below": 1,
+     "indeterminate": 0,
+     "determinate_at_or_above": 2,
+     "not_estimable": 1
+    },
+    "adjusted_states": {
+     "determinate_below": 1,
+     "indeterminate": 1,
+     "determinate_at_or_above": 1,
+     "not_estimable": 1
+    },
+    "any_determinate_below": true,
+    "all_determinate_at_or_above": false,
+    "familywise_any_determinate_below": true,
+    "familywise_all_determinate_at_or_above": false,
+    "point_below_count": 2
+   }
+  }
+ },
+ "warnings": [
+  {
+   "code": "SMALL_N",
+   "message": "unit race, Native American: n=18 < 30"
+  },
+  {
+   "code": "TOOL_DEFAULT_PARAMETERS",
+   "message": "set by libra-check default, not by an accountable party: ['interval_method', 'small_category_exclusion', 'unknown_category_handling', 'burden_rule', 'multiplicity', 'category_scheme', 'selection_rule', 'score_cut', 'selection_adjustment', 'exclusion_base', 'estimand']"
+  },
+  {
+   "code": "NO_BURDEN_RULE_ASSIGNED",
+   "message": "no accountable party assigned a burden rule: indeterminate results are unresolved, not passes"
+  }
+ ],
+ "software": {
+  "name": "libra-check",
+  "version": "0.2.0",
+  "commit": "b4eaa793ec60bcaca0145f1e2183ced6cfa4b195"
+ },
+ "input_sha256": "c2b9a884f36513045937dbe2a8c967e903826bf1a440fa430dd578dfe9782f2d",
+ "parameters_sha256": "d99aaff8a872f0056ac62c2c1fa2d3cc212e0e0480a0deed1fbb25ccb3155af0",
+ "precommitment": null
+}

@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+message: "If you use libra-check, please cite it as below, and cite Morris & Lobsenz (2000) for the underlying statistics."
+title: "libra-check: impact ratios with uncertainty, three-state classification and parameter provenance (LARS v0.1)"
+type: software
+authors:
+  - family-names: Jackson
+    given-names: Matthew
+    affiliation: "Independent Researcher, Detroit, MI, USA"
+    email: majackson1015@gmail.com
+version: "0.2.0"
+date-released: "2026-10-25"
+license: Apache-2.0
+repository-code: "https://github.com/MattJaxson/libra-check"
+keywords:
+  - fairness
+  - bias audit
+  - impact ratio
+  - four-fifths rule
+  - NYC Local Law 144
+  - confidence interval
+references:
+  - type: article
+    title: "Significance tests and confidence intervals for the adverse impact ratio"
+    authors:
+      - family-names: Morris
+        given-names: Scott B.
+      - family-names: Lobsenz
+        given-names: Russell E.
+    journal: "Personnel Psychology"
+    volume: 53
+    issue: 1
+    year: 2000
+    doi: "10.1111/j.1744-6570.2000.tb00195.x"
+  - type: report
+    title: "Libra: A Prototype for Provenance-Aware Fairness Audit Parameters: Implementation Review and Descriptive Sensitivity Analysis"
+    authors:
+      - family-names: Jackson
+        given-names: Matthew
+    version: "1.1.0"
+    year: 2026
+    doi: "10.5281/zenodo.23328063"

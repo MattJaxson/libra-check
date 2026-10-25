@@ -1,0 +1,61 @@
+{
+ "parameters": [
+  {
+   "name": "thresholds",
+   "value": [
+    0.8,
+    0.85
+   ],
+   "set_by": "Matt Jackson (worked example)",
+   "role": "researcher",
+   "process": "illustration; 0.80 echoes the four-fifths rule of thumb, 0.85 shows sensitivity",
+   "date": "2026-10-13",
+   "source": "unassigned by rule (illustration only)"
+  },
+  {
+   "name": "comparator_rule",
+   "value": "fixed:White",
+   "set_by": "Matt Jackson (worked example)",
+   "role": "researcher",
+   "process": "same reference group as preprint v1.1",
+   "date": "2026-10-13",
+   "source": "Jackson (2026) preprint v1.1, doi:10.5281/zenodo.23328063"
+  },
+  {
+   "name": "outcome_definition",
+   "value": "loan originated (HMDA action_taken = 1)",
+   "set_by": "Matt Jackson (worked example)",
+   "role": "researcher",
+   "process": "same outcome as preprint v1.1",
+   "date": "2026-10-13",
+   "source": "Jackson (2026) preprint v1.1"
+  },
+  {
+   "name": "min_n",
+   "value": 30,
+   "set_by": "Matt Jackson (worked example)",
+   "role": "researcher",
+   "process": "same reportable-n rule as preprint v1.1",
+   "date": "2026-10-13",
+   "source": "Jackson (2026) preprint v1.1 (minimum_group_n_for_aggregate_counts = 30)"
+  },
+  {
+   "name": "data_window",
+   "value": "as in preprint v1.1 source file",
+   "set_by": "Matt Jackson (worked example)",
+   "role": "researcher",
+   "process": "public dataset",
+   "date": "2026-10-13",
+   "source": "preprint v1.1 data acquisition notes"
+  },
+  {
+   "name": "alpha",
+   "value": 0.05,
+   "set_by": "Matt Jackson (worked example)",
+   "role": "researcher",
+   "process": "two-sided 95% to match the preprint's 95% intervals and LARS v0.1 R6 SHOULD-default",
+   "date": "2026-10-13",
+   "source": "unassigned by rule; LARS v0.1 R6 default"
+  }
+ ]
+}
