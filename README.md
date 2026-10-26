@@ -101,6 +101,14 @@ County data. For example, the HMDA Black/White origination ratio is 0.817 with a
 before this repository existed, so the `software.commit` field in them points to a private working
 tree; regenerate them to get a commit hash from this repository.
 
+## Used in
+
+libra-check 0.2 is the statistics engine behind Jackson (2026), *Four-Fifths of What? Statistical
+Indeterminacy in NYC Local Law 144 Bias Audits and the Governance Parameters It Exposes*, preprint,
+[doi:10.5281/zenodo.23672859](https://doi.org/10.5281/zenodo.23672859), which re-scores every public
+LL144 audit in the ACLU *Auditing the Audits* corpus with it. The Zenodo record includes the
+replication code.
+
 ## Tests
 
 ```bash

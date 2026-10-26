@@ -39,3 +39,11 @@ references:
     version: "1.1.0"
     year: 2026
     doi: "10.5281/zenodo.23328063"
+  - type: article
+    title: "Four-Fifths of What? Statistical Indeterminacy in NYC Local Law 144 Bias Audits and the Governance Parameters It Exposes"
+    authors:
+      - family-names: Jackson
+        given-names: Matthew
+    status: preprint
+    year: 2026
+    doi: "10.5281/zenodo.23672859"
